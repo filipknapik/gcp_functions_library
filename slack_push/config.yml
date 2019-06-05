@@ -2,5 +2,5 @@
 
 #secrets
 secrets:
-  slackurl: "https://hooks.slack.com/services/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"
+  slackurl: "mandatory"
 # other parameters
