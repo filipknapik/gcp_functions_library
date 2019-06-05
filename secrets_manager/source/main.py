@@ -12,6 +12,8 @@ def execute(request):
             key_saved = os.environ.get('FUNCTION_ACCESS_KEY', '')
             if key_provided!=key_saved:
                 return "Not authorized", 401
+        else:
+            return "Not authorized", 401
         if 'action' in request_json:
             action = request_json['action']
             
