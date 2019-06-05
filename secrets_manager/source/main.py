@@ -3,7 +3,7 @@ from google.cloud import kms_v1
 from google.cloud import firestore
 from flask import jsonify
 
-def secretsProcessor(request):
+def execute(request):
     request_json = request.get_json()
 
     if request_json:
