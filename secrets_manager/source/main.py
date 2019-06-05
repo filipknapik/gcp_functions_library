@@ -8,7 +8,7 @@ def execute(request):
 
     if request_json:
         if 'key' in request_json:
-            key_provided = request_json['key']
+            key_provided = request_json['access_key']
             key_saved = os.environ.get('FUNCTION_ACCESS_KEY', '')
             if key_provided!=key_saved:
                 return "Not authorized", 401
@@ -23,8 +23,8 @@ def execute(request):
             LOCATION = os.environ.get('LOCATION','global')
             
             if action == 'storesecret':
-                key = request_json['key']
-                secret = request_json['secret']
+                key = request_json['secret_key']
+                secret = request_json['secret_value']
                 return saveSecret(GCP_PROJECT, LOCATION, KEY_RING, CRYPTO_KEY, key, secret)       
             elif action == 'getsecrets':
                 return getSecrets(GCP_PROJECT, LOCATION, KEY_RING, CRYPTO_KEY)
