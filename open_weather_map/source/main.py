@@ -4,13 +4,12 @@ import json
 def execute(request):
     request_json = request.get_json()
 
-    url_param = getParam('slackurl', request_json)
-    message = getParam('message', request_json)
-
-    body = {'text': message} 
-    headers_struct = {'Content-type': 'application/json'}
-   
-    r = requests.post(url = url_param, data = json.dumps(body), headers = headers_struct) 
+    url = 'http://api.openweathermap.org/data/2.5/weather'
+    location = getParam('city', request_json)
+    appid = getParam('appid', request_json)
+    payload = {'q': location, 'APPID':appid}
+    r = requests.get(url, params=payload)
+    
     return r.text
 
 def getParam(param, request_json):
