@@ -1,0 +1,6 @@
+# environment variables
+
+#secrets
+secrets:
+  appid: "mandatory"
+# other parameters
