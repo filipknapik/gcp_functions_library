@@ -7,7 +7,7 @@ def execute(request):
     request_json = request.get_json()
 
     if request_json:
-        if 'key' in request_json:
+        if 'access_key' in request_json:
             key_provided = request_json['access_key']
             key_saved = os.environ.get('FUNCTION_ACCESS_KEY', '')
             if key_provided!=key_saved:
