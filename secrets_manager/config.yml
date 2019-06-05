@@ -5,3 +5,4 @@ env_vars:
 
 # other parameters
 memory: 128
+service_account: workflowsa@workflows-tests.iam.gserviceaccount.com
