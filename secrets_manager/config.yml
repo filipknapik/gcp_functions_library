@@ -1,0 +1,7 @@
+# environment variables
+env_vars:
+  KEY_RING: mandatory
+  CRYPTO_KEY: mandatory
+
+# other parameters
+memory: 128
