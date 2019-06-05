@@ -1,0 +1,8 @@
+# environment variables
+env_vars:
+  urlpath: "mandatory"
+  account: "mandatory"
+  key: "mandatory"
+
+# other parameters
+memory: 128
