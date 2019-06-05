@@ -2,6 +2,7 @@
 env_vars:
   KEY_RING: mandatory
   CRYPTO_KEY: mandatory
+  FUNCTION_ACCESS_KEY: mandatory
 
 # ask for other settings necessary at deployment time  
 other_prompts:

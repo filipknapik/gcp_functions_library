@@ -7,6 +7,11 @@ def execute(request):
     request_json = request.get_json()
 
     if request_json:
+        if 'key' in request_json:
+            key_provided = request_json['key']
+            key_saved = os.environ.get('FUNCTION_ACCESS_KEY', '')
+            if key_provided!=key_saved:
+                return "Not authorized", 401
         if 'action' in request_json:
             action = request_json['action']
             
@@ -21,7 +26,7 @@ def execute(request):
                 return saveSecret(GCP_PROJECT, LOCATION, KEY_RING, CRYPTO_KEY, key, secret)       
             elif action == 'getsecrets':
                 return getSecrets(GCP_PROJECT, LOCATION, KEY_RING, CRYPTO_KEY)
-    return "action not understood"
+    return "action not understood", 400
 
 def encrypt(project_id, location_id, key_ring_id, crypto_key_id,inputstr):
     
