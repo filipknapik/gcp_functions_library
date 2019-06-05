@@ -1,0 +1,6 @@
+# environment variables
+
+#secrets
+secrets:
+  slackurl: "https://hooks.slack.com/services/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"
+# other parameters
