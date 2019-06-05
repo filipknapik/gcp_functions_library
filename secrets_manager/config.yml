@@ -3,6 +3,9 @@ env_vars:
   KEY_RING: mandatory
   CRYPTO_KEY: mandatory
 
+# ask for other settings necessary at deployment time  
+other_prompts:
+  service_account: mandatory
+
 # other parameters
 memory: 128
-service_account: workflowsa@workflows-tests.iam.gserviceaccount.com
