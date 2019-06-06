@@ -1,5 +1,6 @@
 import requests
 import json 
+from flask import jsonify
 
 def execute(request):
     request_json = request.get_json()
@@ -11,7 +12,7 @@ def execute(request):
     headers_struct = {'Content-type': 'application/json'}
    
     r = requests.post(url = url_param, data = json.dumps(body), headers = headers_struct) 
-    return r.text
+    return jsonify({"Result":r.text})
 
 def getParam(param, request_json):
     if request_json and param in request_json:

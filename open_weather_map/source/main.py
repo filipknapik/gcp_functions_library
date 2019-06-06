@@ -1,5 +1,6 @@
 import requests
 import json 
+from flask import jsonify
 
 def execute(request):
     request_json = request.get_json()
@@ -10,7 +11,7 @@ def execute(request):
     payload = {'q': location, 'APPID':appid}
     r = requests.get(url, params=payload)
     
-    return r.text
+    return jsonify(r.text)
 
 def getParam(param, request_json):
     if request_json and param in request_json:
