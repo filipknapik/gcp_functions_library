@@ -27,7 +27,7 @@ def execute(request):
                 secret = request_json['secret_value']
                 return jsonify({"Result":saveSecret(GCP_PROJECT, LOCATION, KEY_RING, CRYPTO_KEY, key, secret)})     
             elif action == 'getsecrets':
-                return jsonify(getSecrets(GCP_PROJECT, LOCATION, KEY_RING, CRYPTO_KEY))
+                return getSecrets(GCP_PROJECT, LOCATION, KEY_RING, CRYPTO_KEY)
     return "action not understood", 400
 
 def encrypt(project_id, location_id, key_ring_id, crypto_key_id,inputstr):
