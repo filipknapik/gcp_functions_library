@@ -1,0 +1,4 @@
+# Function dependencies, for example:
+# package>=version
+sendgrid>=6.0.5
+flask==1.0.2

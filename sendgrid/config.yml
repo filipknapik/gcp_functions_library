@@ -1,0 +1,6 @@
+# environment variables
+
+#secrets
+secrets:
+  sendgrid_key: "mandatory"
+# other parameters
