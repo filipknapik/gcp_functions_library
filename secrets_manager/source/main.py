@@ -51,7 +51,6 @@ def saveKey(key, value):
     print("key:"+str(key))
     print("value:"+str(value))
     db = firestore.Client()
-    # [START quickstart_add_data_one]
     doc_ref = db.collection('secrets').document(key)
     doc_ref.set({
         'encrypted': value

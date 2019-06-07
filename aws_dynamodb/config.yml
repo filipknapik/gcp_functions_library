@@ -1,0 +1,7 @@
+# environment variables
+
+#secrets
+secrets:
+  aws_access_key_id: "mandatory"
+  aws_secret_access_key: "mandatory"
+# other parameters
