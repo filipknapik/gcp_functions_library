@@ -1,5 +1,6 @@
 import googleapiclient.discovery
 from flask import jsonify
+import os
 
 def execute(request):
     compute = googleapiclient.discovery.build('compute', 'v1')
