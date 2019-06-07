@@ -12,19 +12,21 @@ def execute(request):
     
     if request_json['action']=='read':
         key = request_json['key']
-        return readDynamoDB(access_key_id, secret_access_key, table_name, region_input, key) 
+        value = request_json['value']
+        return readDynamoDB(access_key_id, secret_access_key, table_name, region_input, key, value) 
     elif request_json['action']=='write':
         item = request_json['item']
         return writeDynamoDB(access_key_id, secret_access_key, table_name, region_input, item) 
     return "method not found"
 
 
-def readDynamoDB(access_key_id, secret_access_key, table_name, region_input, key):
+def readDynamoDB(access_key_id, secret_access_key, table_name, region_input, key, value):
     session = boto3.Session(aws_access_key_id=access_key_id,aws_secret_access_key=secret_access_key)
     dynamodb = session.resource('dynamodb',region_name=region_input)
     table = dynamodb.Table(table_name)
+    keystruct = {key:value}
 
-    response = table.get_item(Key=key)
+    response = table.get_item(Key=keystruct)
     return jsonify(response["Item"])
 
 def writeDynamoDB(access_key_id, secret_access_key, table_name, region_input, key, value):
