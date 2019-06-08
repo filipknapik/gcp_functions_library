@@ -21,6 +21,6 @@ def execute(request):
         items = result["items"]
         result = {"Error":"instance not found"}
         for item in items:
-            if item["name"]==instance:
+            if item["name"]==instanceid:
                 result = item
     return jsonify(result), 200
