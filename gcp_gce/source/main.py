@@ -16,4 +16,11 @@ def execute(request):
         result = compute.instances().stop(project=GCP_PROJECT, zone=zoneid, instance=instanceid).execute()
     elif action=='start':
         result = compute.instances().start(project=GCP_PROJECT, zone=zoneid, instance=instanceid).execute()
-    return jsonify(result)
+    elif action=='getdetails':
+        result = compute.instances().list(project=GCP_PROJECT, zone=zoneid).execute()
+        items = result["items"]
+        result = {"Error":"instance not found"}
+        for item in items:
+            if item["name"]==instance:
+                result = item
+    return jsonify(result), 200
