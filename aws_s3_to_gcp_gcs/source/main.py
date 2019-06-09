@@ -9,12 +9,13 @@ def execute(request):
     
     access_key_id = request_json['aws_access_key_id']
     secret_access_key = request_json['aws_secret_access_key']
-    s3bucket = request_json['s3bucket']
-    region_input = request_json['region_name']
-    gcsbucket = request_json['gcsbucket']
+    s3bucket = request_json['aws_bucket']
+    region_input = request_json['aws_region_name']
+    gcsbucket = request_json['gcs_bucket']
+    path = request_json['filepath']
     tempFileName = '/tmp/filedump'
     
-    path = request_json['path']
+    
     fileSize = readS3(access_key_id, secret_access_key, s3bucket, region_input, path, tempFileName) 
     if fileSize>0:
         return writeGCS(gcsbucket, path, tempFileName), 200
