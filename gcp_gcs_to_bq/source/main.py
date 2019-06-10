@@ -10,7 +10,7 @@ def execute(request):
     table = request_json['table']
     
     dataset_ref = client.dataset(dataset)
-    
+    job_config.skip_leading_rows = 1
     job_config = bigquery.LoadJobConfig()
     job_config.autodetect = True
     job_config.source_format = bigquery.SourceFormat.CSV
